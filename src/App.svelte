@@ -5,12 +5,14 @@
   import HelloDecorator from "./pages/hello-decorator/Page.svelte";
   import HelloFactory from "./pages/hello-factory/Page.svelte";
   import HelloAbstractFactory from "./pages/hello-abstract-factory/Page.svelte";
+  import HelloCommandPattern from "./pages/hello-command-pattern/page.svelte"
 
   const examples = [
     { title: "hello-world", component: HelloWorld },
     { title: "hello-decorator", component: HelloDecorator },
     { title: "hello-factory", component: HelloFactory },
     { title: "hello-abstract-factory", component: HelloAbstractFactory },
+    {title: "hello-command-pattern", component: HelloCommandPattern}
   ];
 
   let page;
