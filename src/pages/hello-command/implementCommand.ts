@@ -10,35 +10,49 @@ import {
     RemoteController,
     Command
 } from "../../patterns/command/LightCommand";
+let redOn: boolean = false
 
-function commandOnLight(command:Command) {
+export function commandOnLight(command: Command): string {
 
     const remoteController = new RemoteController();
     remoteController.setCommand(command)
-    remoteController.executeCommand()
+
+    return remoteController.executeCommand()
 
 }
 
-function orderHandler(command: string) {
+export function orderHandler(command: string): string {
 
-    let redOn = false;
+    let result: string;
+
     switch (command) {
         case "on":
-            redOn ? commandOnLight(new LightOnCommand(new Light())) : commandOnLight(new RedLightOn(new RedLight()))
+            result = redOn ? commandOnLight(new RedLightOn(new RedLight())) : commandOnLight(new LightOnCommand(new Light()))
             break;
 
         case "off":
+            redOn=false
+            result = redOn ? commandOnLight(new RedLightOff(new RedLight())) : commandOnLight(new LightOffCommand(new Light()))
             break
 
         case "increase":
+            result=redOn?commandOnLight(new RedLightIncreaseLuminosity(new RedLight())):commandOnLight(new LightOnCommand(new Light()))
+
             break
 
         case "decrease":
+            console.log("decrease")
+            result =redOn?commandOnLight(new RedLightDecreaseLuminosity(new RedLight())) : commandOnLight(new LightOnCommand(new Light()))
             break
 
-        case "redLight":
+        case "red":
             redOn = true
+            result=redOn?commandOnLight(new RedLightOn(new RedLight())):commandOnLight(new LightOnCommand(new Light()))
+            break
+        default:
 
     }
+    // @ts-ignore
+    return result;
 
 }

@@ -16,12 +16,11 @@ export class Light {
         return 'off'
     }
 }
-
+var value:number=0
 export class RedLight {
-    value: number = 0;
 
     public on(): string {
-        return "on"
+        return `red${value}`
     }
 
     public off(): string {
@@ -29,13 +28,14 @@ export class RedLight {
     }
 
     public increaseLuminosity(): string {
-        this.value++;
-        return this.value.toString()
+        value++;
+        return `red${value}`
     }
 
     public decreaseLuminosity(): string {
-        this.value--;
-        return this.value.toString()
+        value--;
+        return `red${value}`
+
     }
 }
 
@@ -114,8 +114,8 @@ export class RedLightDecreaseLuminosity implements Command {
         this.light = light;
     }
 
-    execute(): string{
-        return  this.light.decreaseLuminosity()
+    execute(): string {
+        return this.light.decreaseLuminosity()
     }
 
 }
@@ -138,6 +138,7 @@ export class RemoteController {
 
 }
 
+/*
 const light = new Light();
 const lightOnCommand = new LightOnCommand(light);
 const remoteController = new RemoteController();
@@ -156,6 +157,7 @@ remoteController.setCommand(newLightCommand)
 remoteController.executeCommand()
 remoteController.setCommand(lightIncreased)
 remoteController.executeCommand()
+*/
 
 
 
