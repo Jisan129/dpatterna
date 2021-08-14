@@ -12,7 +12,7 @@ import {
 } from "../../patterns/command/LightCommand";
 let redOn: boolean = false
 
-export function commandOnLight(command: Command): string {
+export function commandOnReciever(command: Command): string {
 
     const remoteController = new RemoteController();
     remoteController.setCommand(command)
@@ -27,27 +27,27 @@ export function orderHandler(command: string): string {
 
     switch (command) {
         case "on":
-            result = redOn ? commandOnLight(new RedLightOn(new RedLight())) : commandOnLight(new LightOnCommand(new Light()))
+            result = redOn ? commandOnReciever(new RedLightOn(new RedLight())) : commandOnReciever(new LightOnCommand(new Light()))
             break;
 
         case "off":
             redOn=false
-            result = redOn ? commandOnLight(new RedLightOff(new RedLight())) : commandOnLight(new LightOffCommand(new Light()))
+            result = redOn ? commandOnReciever(new RedLightOff(new RedLight())) : commandOnReciever(new LightOffCommand(new Light()))
             break
 
         case "increase":
-            result=redOn?commandOnLight(new RedLightIncreaseLuminosity(new RedLight())):commandOnLight(new LightOnCommand(new Light()))
+            result=redOn?commandOnReciever(new RedLightIncreaseLuminosity(new RedLight())):commandOnReciever(new LightOnCommand(new Light()))
 
             break
 
         case "decrease":
             console.log("decrease")
-            result =redOn?commandOnLight(new RedLightDecreaseLuminosity(new RedLight())) : commandOnLight(new LightOnCommand(new Light()))
+            result =redOn?commandOnReciever(new RedLightDecreaseLuminosity(new RedLight())) : commandOnReciever(new LightOnCommand(new Light()))
             break
 
         case "red":
             redOn = true
-            result=redOn?commandOnLight(new RedLightOn(new RedLight())):commandOnLight(new LightOnCommand(new Light()))
+            result=redOn?commandOnReciever(new RedLightOn(new RedLight())):commandOnReciever(new LightOnCommand(new Light()))
             break
         default:
 

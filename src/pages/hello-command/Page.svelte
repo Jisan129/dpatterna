@@ -7,16 +7,13 @@
         red1: "red/1",
         red2: "red/2",
         red3: "red/3",
-        off: "off",
+        off: "off"
 
     };
-    let cut;
     let redOn=false;
     let parameters = "off"
     function changeCommand(a){
         $: parameters=orderHandler(a);
-        console.log(cut)
-
         $: src=`./images/light-receiver/${commands[parameters]}.png`;
     }
     let src = `./images/light-receiver/${commands[parameters]}.png`;
