@@ -1,5 +1,12 @@
 import {commandOnReciever} from "../pages/hello-command/implementCommand"
-import {RemoteController,Light,LightOnCommand,LightOffCommand} from "../patterns/command/LightCommand"
+import {
+    RemoteController,
+    Light,
+    LightOnCommand,
+    LightOffCommand,
+    RedLightIncreaseLuminosity,
+    RedLight
+} from "../patterns/command/LightCommand"
 
 const remoteController = new RemoteController();
 describe("Light Command Pattern", () => {
@@ -15,5 +22,9 @@ describe("Light Command Pattern", () => {
         let reality=remoteController.executeCommand()
         expect(expectation).toEqual(reality)
 
+    })
+    test('Red Light Increased', () => {
+        let reality = commandOnReciever(new RedLightIncreaseLuminosity(new RedLight()))
+        expect('red1').toEqual(reality);
     })
 })

@@ -19,6 +19,8 @@ export class Light {
 var value:number=0
 export class RedLight {
 
+    newNum:number=0
+
     public on(): string {
         return `red${value}`
     }
@@ -137,27 +139,6 @@ export class RemoteController {
 
 
 }
-
-/*
-const light = new Light();
-const lightOnCommand = new LightOnCommand(light);
-const remoteController = new RemoteController();
-const lightOffCommand = new LightOffCommand(light)
-
-const newLight = new RedLight()
-const newLightCommand = new RedLightOn(newLight)
-const lightIncreased=new RedLightIncreaseLuminosity(newLight)
-
-remoteController.setCommand(lightOnCommand)
-remoteController.executeCommand()
-remoteController.setCommand(lightOffCommand)
-remoteController.executeCommand()
-
-remoteController.setCommand(newLightCommand)
-remoteController.executeCommand()
-remoteController.setCommand(lightIncreased)
-remoteController.executeCommand()
-*/
 
 
 

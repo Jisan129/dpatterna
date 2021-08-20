@@ -18,7 +18,6 @@ export function commandOnReciever(command: Command): string {
     remoteController.setCommand(command)
 
     return remoteController.executeCommand()
-
 }
 
 export function orderHandler(command: string): string {
