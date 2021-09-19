@@ -1,6 +1,6 @@
 <script>
-    import {sendResponse} from "./provider";
-    let data=sendResponse()
+import {sendResponse} from "./provider";
+let data=sendResponse()
 </script>
 
 <style>
@@ -12,4 +12,4 @@
 
 </style>
 
-<p>Data</p>
+<p>No</p>

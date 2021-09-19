@@ -1,3 +1,4 @@
+// @ts-ignore
 interface StarbuzzComponent {
     getName(): string
 
@@ -49,6 +50,6 @@ coffee.getCost()
 const newCoffee = new whipComponent(coffee)
 newCoffee.getCost()
 
-/*
+
 const superCoffee =new whipComponent(newCoffee)
-superCoffee.getCost()*/
+superCoffee.getCost()
